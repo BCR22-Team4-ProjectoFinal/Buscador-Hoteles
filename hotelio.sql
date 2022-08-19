@@ -1,8 +1,8 @@
-drop database if exists hotelio;
-
-create database hotelio;
-
-use hotelio;
+drop table reserva;
+drop table habitacion;
+drop table usuario;
+drop table hotel;
+drop table poblacion;
 
 create table poblacion (
 	id int auto_increment,
@@ -23,7 +23,7 @@ create table hotel (
 );
 
 create table habitacion (
-    numero varchar(255),
+    numero int,
     libre boolean,
     precio_noche double,
     num_personas int,
@@ -31,7 +31,6 @@ create table habitacion (
     hotel_id int,
     primary key (numero,hotel_id),
     foreign key (hotel_id) references hotel (id)
-    
 );
 
 create table usuario (
@@ -55,12 +54,6 @@ create table reserva (
     habitacion_id int,
     usuario_id int,
     primary key (id),
-    foreign key (hotel_id) references habitacion (hotel_id),
-    foreign key (habitacion_id) references habitacion (numero),
+    foreign key (hotel_id,habitacion_id) references habitacion (hotel_id,numero),
     foreign key (usuario_id) references usuario (id)
 );
-
-
-
-
-
