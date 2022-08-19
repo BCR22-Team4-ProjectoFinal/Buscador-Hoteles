@@ -11,5 +11,7 @@ insert into usuario (email, nombre_usuario, dni_nif_nie, nombre, apellidos, tele
 insert into usuario (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero) values ("janedoe@gmail.com", "janedoe", "00000000B", "Jane", "Doe", "+34600000001", 'f');
 
 insert into reserva (fecha_entrada,fecha_salida,hotel_id,habitacion_id,usuario_id) values
-('17/12/2015','20/12/2015',1,101,1),
-('29/10/2020','01/11/2020',11,101,11);
+('2015/12/17','2015/12/20',1,101,1),
+('2020/10/29','2020/11/01',11,101,11);
+
+select * from reserva;
