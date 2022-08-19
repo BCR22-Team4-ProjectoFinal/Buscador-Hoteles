@@ -16,6 +16,8 @@ create table hotel (
     nombre varchar(255),
     categoria int,
     poblacion_id int,
+    latitud double,
+    longitud double,
     primary key (id),
     foreign key (poblacion_id) references poblacion (id)    
 );
