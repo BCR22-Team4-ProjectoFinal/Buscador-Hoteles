@@ -1,17 +1,17 @@
-drop table reserva;
-drop table habitacion;
-drop table usuario;
-drop table hotel;
-drop table poblacion;
+drop table reservas;
+drop table habitaciones;
+drop table usuarios;
+drop table hoteles;
+drop table poblaciones;
 
-create table poblacion (
+create table poblaciones (
 	id int auto_increment,
     nombre varchar(255),
     cp varchar(255),
     primary key (id)
 );
 
-create table hotel (
+create table hoteles (
 	id int auto_increment,
     nombre varchar(255),
     categoria int,
@@ -22,7 +22,7 @@ create table hotel (
     foreign key (poblacion_id) references poblacion (id)    
 );
 
-create table habitacion (
+create table habitaciones (
     numero int,
     libre boolean,
     precio_noche double,
@@ -33,7 +33,7 @@ create table habitacion (
     foreign key (hotel_id) references hotel (id)
 );
 
-create table usuario (
+create table usuarios (
 	id int auto_increment,
     email varchar(255),
     nombre_usuario varchar(255) unique,
@@ -46,7 +46,7 @@ create table usuario (
     primary key (id)
 );
 
-create table reserva (
+create table reservas (
 	id int auto_increment,
     fecha_entrada date,
     fecha_salida date,
