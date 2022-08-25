@@ -19,7 +19,7 @@ create table hoteles (
     latitud double,
     longitud double,
     primary key (id),
-    foreign key (poblacion_id) references poblacion (id) on delete cascade on update cascade
+    foreign key (poblacion_id) references poblaciones (id) on delete cascade on update cascade
 );
 
 create table habitaciones (
@@ -30,7 +30,7 @@ create table habitaciones (
     planta int,
     hotel_id int,
     primary key (numero,hotel_id),
-    foreign key (hotel_id) references hotel (id) on delete cascade on update cascade
+    foreign key (hotel_id) references hoteles (id) on delete cascade on update cascade
 );
 
 create table usuarios (
@@ -50,10 +50,12 @@ create table reservas (
 	id int auto_increment,
     fecha_entrada date,
     fecha_salida date,
+    fecha_reserva date,
     hotel_id int,
     habitacion_id int,
     usuario_id int,
     primary key (id),
-    foreign key (hotel_id,habitacion_id) references habitacion (hotel_id,numero) on delete cascade on update cascade,
-    foreign key (usuario_id) references usuario (id) on delete cascade on update cascade
+    foreign key (hotel_id) references habitaciones (hotel_id) on delete cascade on update cascade,
+    foreign key (habitacion_id) references habitaciones (numero) on delete cascade on update cascade,
+    foreign key (usuario_id) references usuarios (id) on delete cascade on update cascade
 );
