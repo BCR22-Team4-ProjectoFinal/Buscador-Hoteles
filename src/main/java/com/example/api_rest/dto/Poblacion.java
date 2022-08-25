@@ -28,7 +28,7 @@ public class Poblacion {
 	
 	@OneToMany
 	@JoinColumn(name="id")
-	private List<Hoteles> hoteles;
+	private List<Hotel> hoteles;
 
 	/**
 	 * 
@@ -42,7 +42,7 @@ public class Poblacion {
 	 * @param cp
 	 * @param hoteles
 	 */
-	public Poblacion(Long id, String nombre, String cp, List<Hoteles> hoteles) {
+	public Poblacion(Long id, String nombre, String cp, List<Hotel> hoteles) {
 		this.id = id;
 		this.nombre = nombre;
 		this.cp = cp;
@@ -96,14 +96,14 @@ public class Poblacion {
 	 */
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="hoteles")
-	public List<Hoteles> getHoteles() {
+	public List<Hotel> getHoteles() {
 		return hoteles;
 	}
 
 	/**
 	 * @param hoteles the hoteles to set
 	 */
-	public void setHoteles(List<Hoteles> hoteles) {
+	public void setHoteles(List<Hotel> hoteles) {
 		this.hoteles = hoteles;
 	}
 
