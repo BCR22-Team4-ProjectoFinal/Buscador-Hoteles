@@ -1,5 +1,6 @@
 package com.example.api_rest.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -36,7 +37,7 @@ public class Usuario {
 	@Column(name="telefono")
 	private String telefono;
 	@Temporal(TemporalType.TIMESTAMP)
-	private String fechaNacimiento;
+	private Date fechaNacimiento;
 	@Column(name="genero")
 	private String genero;
 	
@@ -63,7 +64,7 @@ public class Usuario {
 	 * @param reservas
 	 */
 	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String apellidos,
-			String telefono, String fechaNacimiento, String genero, List<Reserva> reservas) {
+			String telefono, Date fechaNacimiento, String genero, List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
@@ -177,14 +178,14 @@ public class Usuario {
 	/**
 	 * @return the fechaNacimiento
 	 */
-	public String getFechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
 	/**
 	 * @param fechaNacimiento the fechaNacimiento to set
 	 */
-	public void setFechaNacimiento(String fechaNacimiento) {
+	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
