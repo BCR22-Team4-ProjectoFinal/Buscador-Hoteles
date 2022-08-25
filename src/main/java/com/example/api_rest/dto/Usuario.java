@@ -32,7 +32,7 @@ public class Usuario {
 	@Column(name="nombre")
 	private String nombre;
 	@Column(name="apellidos")
-	private String spellidos;
+	private String apellidos;
 	@Column(name="telefono")
 	private String telefono;
 	@Temporal(TemporalType.TIMESTAMP)
@@ -62,14 +62,14 @@ public class Usuario {
 	 * @param genero
 	 * @param reservas
 	 */
-	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String spellidos,
+	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String apellidos,
 			String telefono, String fechaNacimiento, String genero, List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
 		this.dni = dni;
 		this.nombre = nombre;
-		this.spellidos = spellidos;
+		this.apellidos = apellidos;
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.genero = genero;
@@ -147,17 +147,17 @@ public class Usuario {
 	}
 
 	/**
-	 * @return the spellidos
+	 * @return the apellidos
 	 */
-	public String getSpellidos() {
-		return spellidos;
+	public String getApellidos() {
+		return apellidos;
 	}
 
 	/**
-	 * @param spellidos the spellidos to set
+	 * @param apellidos the apellidos to set
 	 */
-	public void setSpellidos(String spellidos) {
-		this.spellidos = spellidos;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombreUsuario + ", dni=" + dni
-				+ ", nombre=" + nombre + ", spellidos=" + spellidos + ", telefono=" + telefono + ", fechaNacimiento="
+				+ ", nombre=" + nombre + ", spellidos=" + apellidos + ", telefono=" + telefono + ", fechaNacimiento="
 				+ fechaNacimiento + ", genero=" + genero + "]";
 	}
 	
