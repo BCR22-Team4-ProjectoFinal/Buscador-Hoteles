@@ -40,6 +40,8 @@ public class Usuario {
 	private Date fechaNacimiento;
 	@Column(name="genero")
 	private String genero;
+	@Column(name= "contrasena")
+	private String contrasena;
 	
 	@OneToMany
 	@JoinColumn(name="id")
@@ -51,20 +53,23 @@ public class Usuario {
 	public Usuario() {
 	}
 
+	
+
 	/**
 	 * @param id
 	 * @param email
 	 * @param nombreUsuario
 	 * @param dni
 	 * @param nombre
-	 * @param spellidos
+	 * @param apellidos
 	 * @param telefono
 	 * @param fechaNacimiento
 	 * @param genero
+	 * @param contraseña
 	 * @param reservas
 	 */
 	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String apellidos,
-			String telefono, Date fechaNacimiento, String genero, List<Reserva> reservas) {
+			String telefono, Date fechaNacimiento, String genero, String contrasena, List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
@@ -74,8 +79,29 @@ public class Usuario {
 		this.telefono = telefono;
 		this.fechaNacimiento = fechaNacimiento;
 		this.genero = genero;
+		this.contrasena = contrasena;
 		this.reservas = reservas;
 	}
+
+
+
+	/**
+	 * @return the contrasena
+	 */
+	public String getContrasena() {
+		return contrasena;
+	}
+
+
+
+	/**
+	 * @param contrasena the contrasena to set
+	 */
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+
 
 	/**
 	 * @return the id
