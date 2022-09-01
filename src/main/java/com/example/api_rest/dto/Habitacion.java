@@ -37,8 +37,8 @@ public class Habitacion {
 	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 	
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "maquina")
+	@OneToMany
+	@JoinColumn(name="id")
     private List<Reserva> reservas;
 	
 	public Habitacion() {

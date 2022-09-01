@@ -32,7 +32,7 @@ public class Hotel {
 	private String longitud;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="poblacionId")
 	Poblacion poblacion;
 	
 	@OneToMany
