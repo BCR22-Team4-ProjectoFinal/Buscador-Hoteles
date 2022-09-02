@@ -10,11 +10,11 @@ insert into hoteles (nombre, categoria, poblacion_id, latitud, longitud) values 
 insert into hoteles (nombre, categoria, poblacion_id, latitud, longitud) values ("Hotel Nuevo Madrid", 4, 31, 40.46972, -3.66903);
 insert into hoteles (nombre, categoria, poblacion_id, latitud, longitud) values ("Nastasi Hotel & Spa", 4, 41, 41.630785916521596, 0.5970251840229278);
 
-insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (101, true, 50, 2, 1, 11);
-insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (122, true, 68, 2, 1, 21);
-insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (319, true, 79, 2, 3, 31);
-insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (187, true, 123, 2, 1, 41);
-insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (133, true, 49, 2, 1, 51);
+insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (101, true, 50, 2, 1, 1);
+insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (122, true, 68, 2, 1, 11);
+insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (319, true, 79, 2, 3, 21);
+insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (187, true, 123, 2, 1, 31);
+insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (133, true, 49, 2, 1, 41);
 
 insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena) values ("johndoe@gmail.com", "johndoe", "11111111A", "John", "Doe", "+34600000000", 'm', '1111');
 insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("janedoe@gmail.com", "janedoe", "22222222B", "Jane", "Doe", "+34600000011", 'f', '2222', 2);
