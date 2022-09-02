@@ -1,7 +1,9 @@
 package com.example.api_rest.security;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,14 +20,15 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
+	
 	private UserDetailsService userDetailsService;
 
-	public WebSecurityConfig(UserDetailsService userDetailsService) {
+	public WebSecurityConfig(@Lazy UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 	
 	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
+	BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
@@ -35,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 		.cors().and()
 		.csrf().disable()
-		.authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
+		.authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll().and()
+		.authorizeRequests().antMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
 		.anyRequest().authenticated().and()
 			.addFilter(new JWTAuthenticationFilter(authenticationManager()))
 			.addFilter(new JWTAuthorizationFilter(authenticationManager()));

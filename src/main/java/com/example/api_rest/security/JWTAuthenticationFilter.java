@@ -35,7 +35,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			throws AuthenticationException {
 		try {
 			Usuario credenciales = new ObjectMapper().readValue(request.getInputStream(), Usuario.class);
-
+			
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					credenciales.getNombreUsuario(), credenciales.getContrasena(), new ArrayList<>()));
 		} catch (IOException e) {
@@ -46,7 +46,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication auth) throws IOException, ServletException {
-
+		System.out.println(((Usuario)auth.getPrincipal()).getNombreUsuario());
 		String token = Jwts.builder().setIssuedAt(new Date()).setIssuer("hotelio")
 				.setSubject(((User)auth.getPrincipal()).getUsername())
 				.setExpiration(new Date(System.currentTimeMillis() + 864_000_000))

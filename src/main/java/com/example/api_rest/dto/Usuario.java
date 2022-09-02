@@ -16,9 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="usuarios")
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
 
 	@Id
@@ -27,7 +29,7 @@ public class Usuario {
 	@Column(name="email")
 	private String email;
 	@Column(name="nombreUsuario")
-	private String nombreUsuario;
+	private String nombre_usuario;
 	@Column(name="dniNifNie")
 	private String dni;
 	@Column(name="nombre")
@@ -72,7 +74,7 @@ public class Usuario {
 			String telefono, Date fechaNacimiento, String genero, String contrasena, List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
-		this.nombreUsuario = nombreUsuario;
+		this.nombre_usuario = nombreUsuario;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -135,14 +137,14 @@ public class Usuario {
 	 * @return the nombreUsuario
 	 */
 	public String getNombreUsuario() {
-		return nombreUsuario;
+		return nombre_usuario;
 	}
 
 	/**
 	 * @param nombreUsuario the nombreUsuario to set
 	 */
 	public void setNombreUsuario(String nombreUsuario) {
-		this.nombreUsuario = nombreUsuario;
+		this.nombre_usuario = nombreUsuario;
 	}
 
 	/**
@@ -247,7 +249,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombreUsuario + ", dni=" + dni
+		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombre_usuario + ", dni=" + dni
 				+ ", nombre=" + nombre + ", spellidos=" + apellidos + ", telefono=" + telefono + ", fechaNacimiento="
 				+ fechaNacimiento + ", genero=" + genero + "]";
 	}
