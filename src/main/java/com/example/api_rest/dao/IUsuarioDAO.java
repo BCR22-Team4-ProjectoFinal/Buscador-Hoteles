@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.api_rest.dto.Usuario;
 
 public interface IUsuarioDAO extends JpaRepository<Usuario, Long>{
-
+	Usuario findByNombreUsuario(String username);
 }
