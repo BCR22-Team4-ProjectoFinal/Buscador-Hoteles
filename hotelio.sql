@@ -1,8 +1,10 @@
-drop table reservas;
-drop table habitaciones;
-drop table usuarios;
-drop table hoteles;
-drop table poblaciones;
+use heroku_754c7a01d89d1b0;
+
+#drop table if exists reservas;
+#drop table if exists usuarios;
+#drop table if exists habitaciones;
+#drop table if exists hoteles;
+#drop table if exists poblaciones;
 
 create table poblaciones (
 	id int auto_increment,
@@ -19,18 +21,21 @@ create table hoteles (
     latitud double,
     longitud double,
     primary key (id),
-    foreign key (poblacion_id) references poblaciones (id) on delete cascade on update cascade
+    foreign key (poblacion_id) references poblaciones (id) 
+    on delete cascade on update cascade
 );
 
 create table habitaciones (
-    numero int,
+	id int auto_increment,
+    num_habitacion varchar(255),
     libre boolean,
     precio_noche double,
     num_personas int,
     planta int,
     hotel_id int,
-    primary key (numero,hotel_id),
-    foreign key (hotel_id) references hoteles (id) on delete cascade on update cascade
+    primary key (id),
+    foreign key (hotel_id) references hoteles (id)
+    on delete cascade on update cascade
 );
 
 create table usuarios (
@@ -43,6 +48,8 @@ create table usuarios (
     telefono varchar(255),
     fecha_nacimiento date,
     genero char,
+    contrasena varchar(255),
+    rol int,
     primary key (id)
 );
 
@@ -51,11 +58,13 @@ create table reservas (
     fecha_entrada date,
     fecha_salida date,
     fecha_reserva date,
-    hotel_id int,
+    num_adultos int,
+    num_ninos int,
     habitacion_id int,
     usuario_id int,
     primary key (id),
-    foreign key (hotel_id) references habitaciones (hotel_id) on delete cascade on update cascade,
-    foreign key (habitacion_id) references habitaciones (numero) on delete cascade on update cascade,
-    foreign key (usuario_id) references usuarios (id) on delete cascade on update cascade
+    foreign key (habitacion_id) references habitaciones (id)
+    on delete cascade on update cascade,
+    foreign key (usuario_id) references usuarios (id)
+    on delete cascade on update cascade
 );
