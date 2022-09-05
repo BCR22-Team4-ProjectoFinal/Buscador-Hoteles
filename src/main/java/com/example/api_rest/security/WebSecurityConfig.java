@@ -3,7 +3,6 @@ package com.example.api_rest.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,12 +22,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	private UserDetailsService userDetailsService;
 
-	public WebSecurityConfig(@Lazy UserDetailsService userDetailsService) {
+	public WebSecurityConfig(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
 	
 	@Bean
-	BCryptPasswordEncoder bCryptPasswordEncoder() {
+	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	

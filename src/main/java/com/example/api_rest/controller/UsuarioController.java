@@ -24,7 +24,7 @@ public class UsuarioController {
 	UsuarioServiceImpl usuarioServiceImpl;
 	
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	/**
 	 * @param usuarioServiceImpl
 	 * @param bCryptPasswordEncoder

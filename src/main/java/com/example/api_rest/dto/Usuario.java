@@ -16,11 +16,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="usuarios")
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
 
 	@Id
@@ -29,7 +27,7 @@ public class Usuario {
 	@Column(name="email")
 	private String email;
 	@Column(name="nombreUsuario")
-	private String nombre_usuario;
+	private String nombreUsuario;
 	@Column(name="dniNifNie")
 	private String dni;
 	@Column(name="nombre")
@@ -55,8 +53,6 @@ public class Usuario {
 	public Usuario() {
 	}
 
-	
-
 	/**
 	 * @param id
 	 * @param email
@@ -74,7 +70,7 @@ public class Usuario {
 			String telefono, Date fechaNacimiento, String genero, String contrasena, List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
-		this.nombre_usuario = nombreUsuario;
+		this.nombreUsuario = nombreUsuario;
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -85,8 +81,6 @@ public class Usuario {
 		this.reservas = reservas;
 	}
 
-
-
 	/**
 	 * @return the contrasena
 	 */
@@ -94,16 +88,12 @@ public class Usuario {
 		return contrasena;
 	}
 
-
-
 	/**
 	 * @param contrasena the contrasena to set
 	 */
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-
-
 
 	/**
 	 * @return the id
@@ -137,14 +127,14 @@ public class Usuario {
 	 * @return the nombreUsuario
 	 */
 	public String getNombreUsuario() {
-		return nombre_usuario;
+		return nombreUsuario;
 	}
 
 	/**
 	 * @param nombreUsuario the nombreUsuario to set
 	 */
 	public void setNombreUsuario(String nombreUsuario) {
-		this.nombre_usuario = nombreUsuario;
+		this.nombreUsuario = nombreUsuario;
 	}
 
 	/**
@@ -249,7 +239,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombre_usuario + ", dni=" + dni
+		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombreUsuario + ", dni=" + dni
 				+ ", nombre=" + nombre + ", spellidos=" + apellidos + ", telefono=" + telefono + ", fechaNacimiento="
 				+ fechaNacimiento + ", genero=" + genero + "]";
 	}
