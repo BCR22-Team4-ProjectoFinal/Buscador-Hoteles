@@ -16,17 +16,14 @@ insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, pla
 insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (187, true, 123, 2, 1, 31);
 insert into habitaciones (num_habitacion, libre, precio_noche, num_personas, planta, hotel_id) values (133, true, 49, 2, 1, 41);
 
-insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena) values ("johndoe@gmail.com", "johndoe", "11111111A", "John", "Doe", "+34600000000", 'm', '1111');
-insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("janedoe@gmail.com", "janedoe", "22222222B", "Jane", "Doe", "+34600000011", 'f', '2222', 2);
-insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("scott34@gmail.com", "scott34", "33333333C", "James", "Scott", "+34600000066", 'm', '3333', 2);
-insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("dynos49@gmail.com", "dynos49", "44444444D", "Diana", "Würth", "+34600000077", 'f', '4444', 2);
-insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("factors@gmail.com", "factors", "55555555E", "Frank", "Kadosh", "+34600000088", 'm', '5555', 2);
+insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("johndoe@gmail.com", "johndoe", "11111111A", "John", "Doe", "+34600000000", 'm', '$2a$12$a9ZYflhRDnEvrjeyEmeirOVH1csdijsvtM4Q0yeQ1hqnmgciDEr3W', 1);
+insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("janedoe@gmail.com", "janedoe", "22222222B", "Jane", "Doe", "+34600000011", 'f', '$2a$12$D0JJIAzPcBF6bSTbEdM2Au4pgu393eBwswmj7E3juZvL5EQraTcWm', 2);
+insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("scott34@gmail.com", "scott34", "33333333C", "James", "Scott", "+34600000066", 'm', '$2a$12$LtkefW7E2CRs0Y766AHVh.6kPbANUdawRSwb7iq3J2fugB3z/egxO', 2);
+insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("dynos49@gmail.com", "dynos49", "44444444D", "Diana", "Würth", "+34600000077", 'f', '$2a$12$pz7xqvNG7iYiGN1u9954k.iIHR0HrRY04bpSpotLWmsqeUp7c9W1a', 2);
+insert into usuarios (email, nombre_usuario, dni_nif_nie, nombre, apellidos, telefono, genero, contrasena, rol) values ("factors@gmail.com", "factors", "55555555E", "Frank", "Kadosh", "+34600000088", 'm', '$2a$12$Q9F1rVR3jgwJdjaQcbt.d.kDtQupVvHyw6oDC9sNdI0ZBkrIjnHT.', 2);
 
-insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/12/17','2021/12/20',101,11, '2021/12/08', 1, 1);
-insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/10/29','2021/11/01',122,12, '2021/10/19', 11, 11);
-insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/11/17','2021/12/20',319,13, '2021/11/15', 21, 21);
-insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/09/29','2021/10/01',187,14, '2021/09/18', 31, 31);
-insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/01/31','2021/02/20',133,15, '2021/01/10', 41, 41);
-
-select * from reservas;
-
+insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/12/17','2021/12/20', '2021/12/08', 2,1, 1, 1);
+insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/10/29','2021/11/01', '2021/10/19', 2,0, 11, 11);
+insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/11/17','2021/12/20', '2021/11/15', 2,2, 21, 21);
+insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/09/29','2021/10/01', '2021/09/18', 3,1, 31, 31);
+insert into reservas (fecha_entrada, fecha_salida, fecha_reserva, num_adultos, num_ninos, habitacion_id, usuario_id) values ('2021/01/31','2021/02/20', '2021/01/10', 4,0, 41, 41);
