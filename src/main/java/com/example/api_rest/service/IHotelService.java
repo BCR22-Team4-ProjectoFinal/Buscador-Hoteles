@@ -10,4 +10,5 @@ public interface IHotelService {
 	public Hotel guardarHotel(Hotel hotel);	
 	public Hotel hotelXID(Long id);
 	public void eliminarHotel(Long id);
+	public List<Hotel> buscarCategoria(String categoria);
 }
