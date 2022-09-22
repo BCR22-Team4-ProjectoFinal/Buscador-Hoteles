@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="usuarios")
-public class Usuario {
+public class Usuario{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +43,7 @@ public class Usuario {
 	@Column(name= "contrasena")
 	private String contrasena;
 	@Column(name="rol")
-	private int rol;
+	private String rol;
 	
 	@OneToMany
 	@JoinColumn(name="id")
@@ -70,7 +70,8 @@ public class Usuario {
 	 * @param reservas
 	 */
 	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String apellidos,
-			String telefono, Date fechaNacimiento, String genero, String contrasena, int rol, List<Reserva> reservas) {
+			String telefono, Date fechaNacimiento, String genero, String contrasena, String rol,
+			List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
@@ -83,35 +84,6 @@ public class Usuario {
 		this.contrasena = contrasena;
 		this.rol = rol;
 		this.reservas = reservas;
-	}
-
-
-	/**
-	 * @return the rol
-	 */
-	public int getRol() {
-		return rol;
-	}
-
-	/**
-	 * @param rol the rol to set
-	 */
-	public void setRol(int rol) {
-		this.rol = rol;
-	}
-
-	/**
-	 * @return the contrasena
-	 */
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	/**
-	 * @param contrasena the contrasena to set
-	 */
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
 	}
 
 	/**
@@ -241,6 +213,34 @@ public class Usuario {
 	}
 
 	/**
+	 * @return the contrasena
+	 */
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	/**
+	 * @param contrasena the contrasena to set
+	 */
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	/**
+	 * @return the rol
+	 */
+	public String getRol() {
+		return rol;
+	}
+
+	/**
+	 * @param rol the rol to set
+	 */
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	/**
 	 * @return the reservas
 	 */
 	@JsonIgnore
@@ -263,6 +263,8 @@ public class Usuario {
 				+ fechaNacimiento + ", genero=" + genero + ", contrasena=" + contrasena + ", rol=" + rol + ", reservas="
 				+ reservas + "]";
 	}
+
+	
 	
 	
 }
