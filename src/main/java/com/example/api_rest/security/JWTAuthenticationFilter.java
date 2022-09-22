@@ -47,15 +47,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication auth) throws IOException, ServletException {
 		
-		String token = Jwts.builder().setIssuedAt(new Date()).setIssuer("hotelio")
-				.setSubject(((User)auth.getPrincipal()).getUsername())
-				.setExpiration(new Date(System.currentTimeMillis() + 864_000_000))
-				.signWith(SignatureAlgorithm.HS512, "1234").compact();
+		String token = TokenProvider.generateToken(auth);
 		response.addHeader("Authorization", "Bearer " + " " + token);//devuelve token por cabecera
 		response.getWriter().write("{\"token\": \"" + token + "\"}");//devuelve token por body
 		System.out.println(response.getHeader("Authorization"));
 	
 	}
+	
 	
 	
 	

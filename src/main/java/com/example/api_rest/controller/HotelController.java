@@ -46,6 +46,9 @@ public class HotelController {
 		hotelServiceImpl.eliminarHotel(id);
 	}
 	
+	@GetMapping("/hoteles/categoria/{categoria}")
+	public List<Hotel> buscarCategoria (@PathVariable(name="categoria")String categoria){
+		return hotelServiceImpl.buscarCategoria(categoria);
+	}
 	
-
 }

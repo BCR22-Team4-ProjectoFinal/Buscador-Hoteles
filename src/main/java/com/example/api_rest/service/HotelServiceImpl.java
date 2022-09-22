@@ -37,6 +37,12 @@ public class HotelServiceImpl implements IHotelService{
 		// TODO Auto-generated method stub
 		iHotelDAO.deleteById(id);
 	}
+
+	@Override
+	public List<Hotel> buscarCategoria(String categoria) {
+		// TODO Auto-generated method stub
+		return iHotelDAO.findByCategoria(categoria);
+	}
 	
 
 }

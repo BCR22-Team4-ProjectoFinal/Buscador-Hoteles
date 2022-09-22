@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="usuarios")
-public class Usuario {
+public class Usuario{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +42,8 @@ public class Usuario {
 	private String genero;
 	@Column(name= "contrasena")
 	private String contrasena;
+	@Column(name="rol")
+	private String rol;
 	
 	@OneToMany
 	@JoinColumn(name="id")
@@ -63,11 +65,13 @@ public class Usuario {
 	 * @param telefono
 	 * @param fechaNacimiento
 	 * @param genero
-	 * @param contraseña
+	 * @param contrasena
+	 * @param rol
 	 * @param reservas
 	 */
 	public Usuario(Long id, String email, String nombreUsuario, String dni, String nombre, String apellidos,
-			String telefono, Date fechaNacimiento, String genero, String contrasena, List<Reserva> reservas) {
+			String telefono, Date fechaNacimiento, String genero, String contrasena, String rol,
+			List<Reserva> reservas) {
 		this.id = id;
 		this.email = email;
 		this.nombreUsuario = nombreUsuario;
@@ -78,21 +82,8 @@ public class Usuario {
 		this.fechaNacimiento = fechaNacimiento;
 		this.genero = genero;
 		this.contrasena = contrasena;
+		this.rol = rol;
 		this.reservas = reservas;
-	}
-
-	/**
-	 * @return the contrasena
-	 */
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	/**
-	 * @param contrasena the contrasena to set
-	 */
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
 	}
 
 	/**
@@ -222,6 +213,34 @@ public class Usuario {
 	}
 
 	/**
+	 * @return the contrasena
+	 */
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	/**
+	 * @param contrasena the contrasena to set
+	 */
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	/**
+	 * @return the rol
+	 */
+	public String getRol() {
+		return rol;
+	}
+
+	/**
+	 * @param rol the rol to set
+	 */
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	/**
 	 * @return the reservas
 	 */
 	@JsonIgnore
@@ -240,9 +259,12 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", email=" + email + ", nombreUsuario=" + nombreUsuario + ", dni=" + dni
-				+ ", nombre=" + nombre + ", spellidos=" + apellidos + ", telefono=" + telefono + ", fechaNacimiento="
-				+ fechaNacimiento + ", genero=" + genero + "]";
+				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", fechaNacimiento="
+				+ fechaNacimiento + ", genero=" + genero + ", contrasena=" + contrasena + ", rol=" + rol + ", reservas="
+				+ reservas + "]";
 	}
+
+	
 	
 	
 }
