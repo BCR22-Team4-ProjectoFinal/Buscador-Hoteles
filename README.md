@@ -12,7 +12,7 @@ URL: https://app-mysql-database.herokuapp.com
 | PUT | /api/hoteles/{id} | /api/habitaciones/{id} | /api/reservas/{id} | /api/poblaciones/{id} | /api/usuarios/{id} |
 | DELETE | /api/hoteles/{id} | /api/habitaciones/{id} | /api/reservas/{id} | /api/poblaciones/{id} | /api/usuarios/{id} |
 
-## **GET enpoint example for /api/hoteles path:**
+## **GET enpoint example for /api/habitaciones path:**
 
 ```
 [
