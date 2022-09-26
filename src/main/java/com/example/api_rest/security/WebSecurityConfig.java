@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-		.cors().configurationSource(corsConfigurationSource()).and()
+		.cors().and()
 		.csrf().disable()
 		.authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll().and()
 		.authorizeRequests().antMatchers(HttpMethod.POST, "/api/usuarios").permitAll().and()

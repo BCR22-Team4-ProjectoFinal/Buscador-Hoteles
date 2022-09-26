@@ -40,8 +40,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String token = request.getHeader("Authorization");
-		
-		String username = Jwts.parser()
+		if (token!=null) {
+			String username = Jwts.parser()
 				// Cipher key to decrypt the token
 				.setSigningKey("1234")
 				// Parse the Bearer Token
@@ -51,11 +51,14 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
 				// ...and the subject, which (If all's correct) should be the username
 				.getSubject();
 		
-		UserDetails user = usuarioServiceImpl.loadUserByUsername(username);
+			UserDetails user = usuarioServiceImpl.loadUserByUsername(username);
 		
-		UsernamePasswordAuthenticationToken authenticationToken = TokenProvider.getAuthentication(token.replace("Bearer ", ""), user);
-		SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+			UsernamePasswordAuthenticationToken authenticationToken = TokenProvider.getAuthentication(token.replace("Bearer ", ""), user);
+			SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+			
+		}
 		filterChain.doFilter(request, response);
+		
 	}
 
 }
