@@ -41,7 +41,6 @@ public class UsuarioController {
 		return usuarioServiceImpl.listarUsuarios();
 	}
 	
-	@PreAuthorize("hasRole('ROLE_USER') OR hasRole('ROLE_ADMIN')")
 	@GetMapping("/usuarios/{id}")
 	public Usuario usuarioXId(@PathVariable(name="id")Long id) {
 		return usuarioServiceImpl.usuarioXId(id);
@@ -53,7 +52,6 @@ public class UsuarioController {
 		return usuarioServiceImpl.guardarUsuario(usuario);
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PutMapping("/usuarios/{id}")
 	public Usuario actualizarUsuario(@PathVariable(name="id")Long id, @RequestBody Usuario usuario) {
 		Usuario usuarioActualizado = usuarioServiceImpl.usuarioXId(id);
